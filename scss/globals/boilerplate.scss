@@ -1,0 +1,6 @@
+html {
+    font-size: 100%; // According to CoderCoder, helps with accessibility
+    box-sizing: border-box; // If add padding to an element, ensures that
+    // the total width of the element will include the padding, so an element of 300px
+    // with a padding of 20px will still be 300px
+}
