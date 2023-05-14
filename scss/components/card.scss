@@ -1,0 +1,7 @@
+@use '../util' as *; // apparently if you import all these as *, then you can just directly
+// use the names defined in util without having to do util.your_name each time
+// should be avoided for bigger app
+
+.card {
+    padding: rem(20);
+}
