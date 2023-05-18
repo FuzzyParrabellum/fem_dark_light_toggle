@@ -1,0 +1,12 @@
+@use '../util' as *;
+
+.container {
+    padding: 0 rem(25); // we will want 25px padding on left and right of containers in mobile
+                        // version
+    max-width: rem(1110);
+    margin: 0 auto rem(46);
+
+    @include breakpoint(large) {
+        padding: 0; // we won't want any padding on desktop versions
+    }
+}
