@@ -2,30 +2,69 @@
 // use the names defined in util without having to do util.your_name each time
 // should be avoided for bigger app
 
+.cards {
+    display: grid;
+    gap: rem(30);
+    grid-template-columns: 1fr;
+    place-items: center;
+
+    @include breakpoint(medium) {
+        grid-template-columns: repeat(2, 1fr);    
+    }
+
+    @include breakpoint(large) {
+        grid-template-columns: repeat(4, 1fr)
+    }
+}
+
 .card {
+    //flex: 1;  shorthand - Each child element of card will divide the remaing space evenly, there is four
+    // so they will take 25% each
     background: var(--dark-card);
     color: var(--dark-text1);
     width: rem(255); // TEMPORARY
     text-align: center;
     padding: rem(25);
+    border-radius: rem(5);
+
+    position:relative;
+    overflow: hidden;
+
+    &--facebook {
+        border-top: rem(5) solid var(--facebook);
+    }
+    &--instagram {
+        padding-top: rem(30);
+        &::before {
+            content: '';
+            height: rem(5);
+            width: 100%;
+            background: var(--instagram-start);
+            position: absolute;
+            display: block;
+            left: 0;
+            top: 0;
+        }
+    }
+
+    &--twitter {
+        border-top: rem(5) solid var(--twitter);
+    }
+
+    &--youtube {
+        border-top: rem(5) solid var(--youtube);
+    }
 
     &__platform {
         display: flex; 
         justify-content: center;
         align-items: center;
         margin-bottom: rem(28);
+        margin-top: rem(5);
+        border: white solid 2px;
     }
     &__icon {
         margin-right: rem(8);
-        &--facebook {
-
-        }
-        &--instagram {
-
-        }
-        &--youtube {
-
-        }
     }
 
     &__username {
@@ -45,7 +84,7 @@
         color: var(--light-bg);
         font-weight: 700; // =bold
         line-height: 1;
-        margin-bottom: rem(9);
+        margin-bottom: rem(12);
         &--big {
             font-size: rem(56);
             letter-spacing: rem(-2);
@@ -55,4 +94,24 @@
             
         }
     }
+
+    &__change {
+        font-size: rem(12);
+        font-weight: 700;
+        display: flex;
+        align-items: center; // Important for the img, or with flexbox will automatically stretch
+                            // it
+        justify-content: center; // Because by default justify-content will be flex-start
+        &--up {
+            color: var(--limegreen);
+        }
+        &--down {
+            color: var(--brightred);
+        }
+    }
+
+    &__number {
+        margin-left: rem(4);
+    }
+
 }
